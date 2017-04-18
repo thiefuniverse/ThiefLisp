@@ -3,8 +3,8 @@
 //
 
 #include "ThiefLisp_Evaler.h"
+using namespace ThiefLispSpace;
 
-
-std::string ThiefLisp_Evaler::eval(std::string &evalStr) {
-    return evalStr;
+std::string ThiefLisp_Evaler::eval(TL_AST*  evalStr) {
+    return "";
 }

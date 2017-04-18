@@ -2,17 +2,25 @@
 // Created by thief on 17-3-10.
 //
 
-#ifndef READ_LINE_TEST_THIEFLISP_H
-#define READ_LINE_TEST_THIEFLISP_H
-
 #include <string>
 #include <readline/history.h>
 #include <readline/tilde.h>
 #include <readline/readline.h>
+#include "ThiefLisp_Utils.h"
 #include "ThiefLisp_Reader.h"
 #include "ThiefLisp_Evaler.h"
 #include "ThiefLisp_Printer.h"
+#ifndef READ_LINE_TEST_THIEFLISP_H
+#define READ_LINE_TEST_THIEFLISP_H
 
+
+using namespace ThiefLispSpace;
+
+class ThiefEmptyInput: public std::exception{};
+class ThiefLisp_unmatched: public std::exception
+{
+
+};
 
 class ThiefLisp {
 public:

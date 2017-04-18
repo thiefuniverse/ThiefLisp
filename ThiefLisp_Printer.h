@@ -7,10 +7,13 @@
 
 #include <string>
 
-class ThiefLisp_Printer {
-public:
-    void print(std::string& input);
-};
+namespace ThiefLispSpace{
+    class ThiefLisp_Printer {
+    public:
+        void print(std::string& input);
+    };
+
+}
 
 
 #endif //READ_LINE_TEST_THIEFLISP_PRINTER_H

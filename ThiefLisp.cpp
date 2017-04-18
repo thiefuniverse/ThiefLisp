@@ -2,15 +2,35 @@
 // Created by thief on 17-3-10.
 //
 
-#include "ThiefLisp.h"
+// todo:
+//     keep state for ThiefLisp
+//     load file
 #include "ThiefLisp_Utils.h"
+#include "ThiefLisp.h"
+#include "ThiefLisp_Expr.h"
+
+using namespace ThiefLispSpace;
+
 
 void ThiefLisp::run() {
     initLisp();
+    std::string evalResult;
+    TL_AST* readResult;
     while(lispContinue)
     {
-        std::string readResult=reader.readOnce(inputInfo);
-        std::string evalResult=evaler.eval(readResult);
+        try{
+            readResult=reader.readOnce();
+            evalResult=evaler.eval(readResult);
+        }
+        catch (ThiefEmptyInput& erro)
+        {
+            continue;
+        }
+        catch (std::string& s)
+        {
+            evalResult=s;
+        }
+
         printer.print(evalResult);
         if(evalResult==quitStr)
         {
